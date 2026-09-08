@@ -1,10 +1,12 @@
 name: Dependency review
 on:
   pull_request:
+  merge_group:
+    types: [checks_requested]
 permissions: {}
 concurrency:
-  group: dependency-review-${{ github.event.pull_request.number }}
-  cancel-in-progress: true
+  group: dependency-review-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
   review:
     name: Dependency review
