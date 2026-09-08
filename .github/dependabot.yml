@@ -1,10 +1,11 @@
 version: 2
 updates:
   - package-ecosystem: github-actions
-    directory: /
+    directories: [/, /workflow-templates]
     schedule:
       interval: weekly
     groups:
       actions-minor-patch:
+        group-by: dependency-name
         patterns: ['*']
         update-types: [minor, patch]
