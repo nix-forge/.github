@@ -19,8 +19,8 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: nix-forge/ci/actions/setup-nix@679f99ac3b2c8e25d2b2049c1b21541c51dc71ee # v1.0.2
+      - uses: nix-forge/ci/actions/setup-nix@03eb849e788bd71ac08afab6a1135a6ff6514f3c # v1.0.4
       - name: Validate workflow templates
-        run: nix develop github:nix-forge/ci/679f99ac3b2c8e25d2b2049c1b21541c51dc71ee --command actionlint .github/workflows/*.yml workflow-templates/*.yml
+        run: nix develop github:nix-forge/ci/03eb849e788bd71ac08afab6a1135a6ff6514f3c --command actionlint .github/workflows/*.yml workflow-templates/*.yml
       - name: Validate template metadata
         run: python3 -c 'import json,pathlib; [json.loads(p.read_text()) for p in pathlib.Path("workflow-templates").glob("*.json")]'
