@@ -1,6 +1,6 @@
 # nix-forge community files
 
-Organization workflow templates call the pinned release in [nix-forge/ci](https://github.com/nix-forge/ci). Choose a template in the Actions tab and select the systems and checks your repository supports. Template edits do not update existing copies; Dependabot updates the shared workflow references.
+Organization workflow templates call the pinned release in [nix-forge/ci](https://github.com/nix-forge/ci). Choose a template in the Actions tab and select the systems your repository supports. Template edits do not update existing copies; Dependabot updates the shared workflow references.
 
 The shared CI library owns validation and queue policy. This repository validates its own workflows and templates with that library's syntax, security and contract checks. Each template has matching metadata with a name and description. Keep all shared references on one reviewed release commit.
 
@@ -11,3 +11,9 @@ action dependency across those directories. The root location alone only covers
 `.github/workflows` and root action metadata. Explicit template coverage prevents
 runtime and onboarding pins from drifting. See the
 [Dependabot directory and grouping reference](https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference#directories-or-directory).
+
+The Nix starter discovers lockfiles and nested partitions. Flake checks follow
+the repository's declared outputs. Protect the stable `Flake lock health` gate
+instead of matrix jobs named after paths; its success requires every discovered
+lockfile to pass. The shared validator discovers nested composite actions using
+either YAML extension.
