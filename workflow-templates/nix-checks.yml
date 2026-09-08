@@ -14,7 +14,7 @@ jobs:
     name: Flake lock health
     permissions:
       contents: read
-    uses: nix-forge/ci/.github/workflows/flake-lock.yml@a75d21dababfd55145e2df1db81f3d2d865bec59 # v1.0.0
+    uses: nix-forge/ci/.github/workflows/flake-lock.yml@679f99ac3b2c8e25d2b2049c1b21541c51dc71ee # v1.0.2
     with:
       lockfile: flake.lock
   checks:
@@ -27,6 +27,6 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: nix-forge/ci/actions/setup-nix@a75d21dababfd55145e2df1db81f3d2d865bec59 # v1.0.0
+      - uses: nix-forge/ci/actions/setup-nix@679f99ac3b2c8e25d2b2049c1b21541c51dc71ee # v1.0.2
       - name: Run declared repository checks
         run: nix flake check --keep-going --print-build-logs
