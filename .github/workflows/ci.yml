@@ -4,10 +4,11 @@ on:
     branches: [main]
   pull_request:
   merge_group:
+  workflow_dispatch:
 permissions: {}
 concurrency:
   group: ci-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
   validate:
     name: validate
@@ -19,8 +20,18 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: nix-forge/ci/actions/setup-nix@03eb849e788bd71ac08afab6a1135a6ff6514f3c # v1.0.4
-      - name: Validate workflow templates
-        run: nix develop github:nix-forge/ci/03eb849e788bd71ac08afab6a1135a6ff6514f3c --command actionlint .github/workflows/*.yml workflow-templates/*.yml
-      - name: Validate template metadata
-        run: python3 -c 'import json,pathlib; [json.loads(p.read_text()) for p in pathlib.Path("workflow-templates").glob("*.json")]'
+      - uses: nix-forge/ci/actions/setup-nix@7903659c4b16378411a3ea79dd73cec5c82708cc # v2.0.0
+      - name: Validate workflows and template contracts
+        uses: nix-forge/ci/actions/validate-workflows@7903659c4b16378411a3ea79dd73cec5c82708cc # v2.0.0
+  queue-completion:
+    continue-on-error: true
+    name: Queue completion callback
+    if: always() && github.event_name == 'workflow_dispatch' && startsWith(github.ref, 'refs/heads/gh-readonly-queue/main/')
+    needs: [validate]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    permissions:
+      actions: write # Notify the trusted default-branch reconciler.
+    steps:
+      - name: Notify trusted queue reconciler
+        uses: nix-forge/ci/actions/queue-completion@7903659c4b16378411a3ea79dd73cec5c82708cc # v2.0.0

@@ -10,4 +10,4 @@ jobs:
     name: Dependency review
     permissions:
       contents: read
-    uses: nix-forge/ci/.github/workflows/dependency-review.yml@03eb849e788bd71ac08afab6a1135a6ff6514f3c # v1.0.4
+    uses: nix-forge/ci/.github/workflows/dependency-review.yml@7903659c4b16378411a3ea79dd73cec5c82708cc # v2.0.0
