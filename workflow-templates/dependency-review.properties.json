@@ -1,0 +1,8 @@
+{
+  "name": "nix-forge dependency review",
+  "description": "Review dependency changes using the organization policy.",
+  "iconName": "octicon shield-check",
+  "categories": [
+    "security"
+  ]
+}

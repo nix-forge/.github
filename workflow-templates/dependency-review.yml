@@ -1,0 +1,13 @@
+name: Dependency review
+on:
+  pull_request:
+permissions: {}
+concurrency:
+  group: dependency-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  review:
+    name: Dependency review
+    permissions:
+      contents: read
+    uses: nix-forge/ci/.github/workflows/dependency-review.yml@a75d21dababfd55145e2df1db81f3d2d865bec59 # v1.0.0

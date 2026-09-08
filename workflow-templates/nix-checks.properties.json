@@ -1,0 +1,11 @@
+{
+  "name": "nix-forge Nix checks",
+  "description": "Pinned setup and flake checks for libraries and packages. Keep host builds on their designated builders.",
+  "iconName": "octicon check-circle",
+  "categories": [
+    "Nix"
+  ],
+  "filePatterns": [
+    "flake.nix"
+  ]
+}

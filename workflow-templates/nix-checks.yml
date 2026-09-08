@@ -1,0 +1,32 @@
+name: Nix checks
+on:
+  pull_request:
+  push:
+    branches: [$default-branch]
+  merge_group:
+  workflow_dispatch:
+permissions: {}
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  lock:
+    name: Flake lock health
+    permissions:
+      contents: read
+    uses: nix-forge/ci/.github/workflows/flake-lock.yml@a75d21dababfd55145e2df1db81f3d2d865bec59 # v1.0.0
+    with:
+      lockfile: flake.lock
+  checks:
+    name: Nix checks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: nix-forge/ci/actions/setup-nix@a75d21dababfd55145e2df1db81f3d2d865bec59 # v1.0.0
+      - name: Run declared repository checks
+        run: nix flake check --keep-going --print-build-logs
