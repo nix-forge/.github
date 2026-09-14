@@ -1,0 +1,25 @@
+name: Feature request
+description: Propose an organization-wide documentation, workflow, or community improvement.
+title: "[feature] "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What user, maintainer, or repository need is not met today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the desired behavior and the repositories it would affect.
+    validations:
+      required: true
+  - type: textarea
+    id: rollout
+    attributes:
+      label: Compatibility and rollout plan
+      description: Note migration, communication, and validation requirements.
+    validations:
+      required: true

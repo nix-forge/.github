@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability report
+    url: https://github.com/nix-forge/.github/security/advisories/new
+    about: Report security vulnerabilities privately instead of opening a public issue.
+  - name: Organization documentation
+    url: https://nix-forge.github.io/.github/
+    about: Read the organization landing page and linked project documentation first.
