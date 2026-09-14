@@ -24,7 +24,7 @@ concurrency:
 
 jobs:
   dependency-review:
-    name: dependency-review / review
+    name: dependency-review
     permissions:
       contents: read
     uses: nix-forge/ci/.github/workflows/dependency-review.yml@b5ec655589b52df24c9b38d20a6b4bf364ec35cc # v2.5.4
