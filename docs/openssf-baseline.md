@@ -48,6 +48,13 @@ evidence, a security assessment, release identity and verification instructions,
 and a support window. Shared workflow design and caller migrations must be
 reviewed before the release.
 
+The [dependency management policy](dependency-management.md) defines how
+workflow and template dependencies are selected, pinned, reviewed, and
+updated. The [secret management policy](secret-management.md) defines how
+organization credentials are stored, accessed, rotated, and revoked. The
+organization-wide repository contract is recorded in
+[PROJECTS.md](../PROJECTS.md).
+
 ## Governance and vulnerability response
 
 Organization administration and repository settings are controlled by the

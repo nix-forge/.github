@@ -29,5 +29,12 @@ must not embed secrets. Metadata jobs must not execute pull-request code.
 | A pull request changes organization defaults unnoticed | Protected main, DCO, required checks, and maintainer review |
 | A workflow reference is compromised | Full commit SHAs, dependency review, CodeQL, and release review |
 
+## Assessment cadence
+
+Before changing a shared template, organization default, or workflow reference,
+maintainers review the affected caller repositories, external interfaces, and
+critical paths above. The pull request records the security impact, required
+caller migration, and any limitation on the resulting control.
+
 Review this model when a template, organization setting, shared workflow
 reference, or permission default changes.
