@@ -1,0 +1,29 @@
+name: Bug report
+description: Report a reproducible problem in organization-wide configuration or tooling.
+title: "[bug] "
+body:
+  - type: input
+    id: component
+    attributes:
+      label: Affected file, workflow, or repository
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and impact
+      description: What happened, who is affected, and what did you expect instead?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Include public configuration and exact steps. Redact secrets, tokens, and private data.
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: Include relevant redacted logs, links, or screenshots.
