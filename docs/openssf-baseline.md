@@ -12,6 +12,11 @@ software release, compiled asset, or package. Changes are consumed by copying
 templates or by GitHub organization defaults. Future changes to shared workflow
 contracts must be reviewed against the caller repositories.
 
+The related repositories and their common security contract are listed in
+[`PROJECTS.md`](../PROJECTS.md). Template changes are reviewed with the
+affected repositories so their security requirements remain at least as strict
+as this project.
+
 ## Change and build controls
 
 Every commit must carry a matching Signed-off-by trailer. The DCO file defines

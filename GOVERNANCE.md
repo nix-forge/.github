@@ -3,6 +3,10 @@
 The nix-forge organization maintains this repository as the source for public
 community files, workflow templates, and organization defaults.
 
+The current organization owner with access to sensitive resources is
+[@IanHollow](https://github.com/IanHollow). Additional maintainers are listed
+and reviewed before access is granted.
+
 ## Roles
 
 The organization owner is responsible for repository administration,
