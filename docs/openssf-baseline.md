@@ -21,8 +21,11 @@ on pull requests and merge-group refs.
 All workflows start with empty default permissions. Jobs grant only the scopes
 they need, checkout does not persist credentials, and actions use full commit
 SHAs. Pull requests and merge groups run workflow and template validation,
-dependency review, CodeQL for workflow files, and the repository test suite
-before protected main can advance.
+CodeQL for workflow files, and the repository test suite before protected main
+can advance. The dependency-review template remains available for caller
+repositories, but this repository has no GitHub-supported dependency manifest
+for the action to compare. Its own action references are checked by the
+workflow contract validator, Dependabot, CodeQL, and the template checks.
 
 The normal evidence set is the shared workflow validator from nix-forge/ci and
 the repository's own CI workflow. Template changes include metadata checks and
@@ -32,10 +35,12 @@ broad permissions by default.
 ## Dependency and future release controls
 
 Workflow pins, template metadata, and shared release references are reviewed
-with their security and compatibility impact. Dependency review blocks new
-low-or-higher severity vulnerabilities. CodeQL and SCA findings must be fixed
-before any future packaged release unless a reviewed suppression records why
-the finding is not exploitable.
+with their security and compatibility impact. Caller repositories use the
+dependency-review template to block new low-or-higher severity
+vulnerabilities. This repository's action references are checked by the
+workflow contract validator, Dependabot, and CodeQL. SCA findings must be
+fixed before any future packaged release unless a reviewed suppression records
+why the finding is not exploitable.
 
 This repository has no software release or compiled release asset. If that
 changes, a release must use a unique tag, scoped change log, integrity
@@ -63,7 +68,7 @@ records reviewed non-affectability statements. Support rules are in
 | --- | --- |
 | Least-privilege CI and trusted inputs | Empty defaults, job scopes, pinned actions, template validation, and no template secrets |
 | Releases and change logs | This release policy and caller migration review |
-| Dependencies | Template pins, dependency review, and CodeQL |
+| Dependencies | Template pins, the caller dependency-review template, Dependabot, and CodeQL |
 | Build and test instructions | [CONTRIBUTING.md](../CONTRIBUTING.md) and the shared validator |
 | Governance | [GOVERNANCE.md](../GOVERNANCE.md) |
 | Contributor legal agreement | [DCO](../DCO) and .github/workflows/dco.yml |
