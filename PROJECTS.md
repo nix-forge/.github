@@ -26,3 +26,10 @@ role.
 
 Changes to shared templates or the CI library require a caller impact review.
 Changes to organization settings are recorded separately from source changes.
+
+Repositories that publish release archives or executable assets use the
+reviewed reusable SLSA builders in [nix-forge/ci](https://github.com/nix-forge/ci).
+The builder creates and attests the exact release bytes without release-write
+access; a protected publisher verifies the signer workflow and then publishes
+an immutable release. Source-only repositories do not claim SLSA Build Level 3
+for routine CI output, documentation, or a flake that is consumed directly.
