@@ -27,6 +27,21 @@ role.
 Changes to shared templates or the CI library require a caller impact review.
 Changes to organization settings are recorded separately from source changes.
 
+## Organization settings
+
+The organization requires two-factor authentication for members. GitHub Actions
+is enabled for all repositories, uses read-only default workflow permissions,
+cannot approve pull requests, and requires every action and reusable workflow
+reference to use a full commit SHA. The protected `main` branches require the
+repository's required checks, one approving review, approval of the latest
+push, linear history, a merge queue, and no force-push or deletion access.
+
+Because the organization currently has one member, `IanHollow` is the explicit
+pull-request-only bypass actor for the review and merge-queue rules. This lets
+the maintainer merge fully green maintenance changes without removing review
+protection for other contributors. Remove this exception when an independent
+maintainer is available.
+
 Repositories that publish release archives or executable assets use the
 reviewed reusable SLSA builders in [nix-forge/ci](https://github.com/nix-forge/ci).
 The builder creates and attests the exact release bytes without release-write
