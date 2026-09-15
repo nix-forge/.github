@@ -19,9 +19,10 @@ review.
 The minimum security contract for every repository is protected `main`,
 two-factor authentication for organization members, signed-off contributions,
 least-privilege CI, dependency and code scanning appropriate to its dependency
-surface, private vulnerability reporting, and a documented release/support
-policy. A repository may add stricter controls for its runtime, packaging, or
-workflow role.
+surface, published OpenSSF Scorecard results for eligible public repositories,
+private vulnerability reporting, and a documented release/support policy. A
+repository may add stricter controls for its runtime, packaging, or workflow
+role.
 
 Changes to shared templates or the CI library require a caller impact review.
 Changes to organization settings are recorded separately from source changes.

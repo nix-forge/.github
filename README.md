@@ -1,6 +1,15 @@
 # nix-forge community files
 
+[![OpenSSF Developer Best Practices](https://www.bestpractices.dev/projects/14648/badge)](https://www.bestpractices.dev/en/projects/14648/passing)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/nix-forge/.github/badge)](https://scorecard.dev/viewer/?uri=github.com/nix-forge/.github)
+
 Organization workflow templates call the pinned release in [nix-forge/ci](https://github.com/nix-forge/ci). Choose a template in the Actions tab and select the systems your repository supports. Template edits do not update existing copies; Dependabot updates the shared workflow references. The complete repository map and shared security contract are in [PROJECTS.md](PROJECTS.md).
+
+Use the `OpenSSF Scorecard` template to add the standard repository-local
+analysis to a new public repository. Existing repositories keep their own
+publishing workflow because Scorecard's result service restricts the job's
+actions and OIDC context; the template keeps those requirements visible and
+reviewable in the consuming repository.
 
 The shared CI library owns validation and queue policy. This repository validates its own workflows and templates with that library's syntax, security and contract checks. Each template has matching metadata with a name and description. Keep all shared references on one reviewed release commit.
 
