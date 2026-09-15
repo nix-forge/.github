@@ -11,6 +11,8 @@ workflow templates, and organization documentation. It does not publish a
 software release, compiled asset, or package. Changes are consumed by copying
 templates or by GitHub organization defaults. Future changes to shared workflow
 contracts must be reviewed against the caller repositories.
+The SLSA scope and the trusted-builder policy are documented in
+[docs/slsa.md](slsa.md).
 
 The related repositories and their common security contract are listed in
 [`PROJECTS.md`](../PROJECTS.md). Template changes are reviewed with the

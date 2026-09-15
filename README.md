@@ -4,6 +4,11 @@ Organization workflow templates call the pinned release in [nix-forge/ci](https:
 
 The shared CI library owns validation and queue policy. This repository validates its own workflows and templates with that library's syntax, security and contract checks. Each template has matching metadata with a name and description. Keep all shared references on one reviewed release commit.
 
+Release-producing repositories use the pinned reusable SLSA builders in
+[`nix-forge/ci`](https://github.com/nix-forge/ci). See [docs/slsa.md](docs/slsa.md)
+for the organization scope and why source-only repositories do not attest
+routine CI output.
+
 The Nix template retains repository-owned build definitions. Repositories using a merge queue must configure required checks and validate both PR and merge-group events. Metadata automation must execute pinned shared actions without checking out PR code. See the [shared design and migration guide](https://github.com/nix-forge/ci/blob/main/docs/architecture.md).
 
 Dependabot covers both root workflows and `/workflow-templates`, grouping each
