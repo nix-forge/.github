@@ -1,0 +1,11 @@
+{
+  "name": "OpenSSF Scorecard",
+  "description": "Run a pinned OpenSSF Scorecard analysis and publish SARIF results for this repository.",
+  "iconName": "octicon shield-check",
+  "categories": [
+    "security"
+  ],
+  "filePatterns": [
+    "*"
+  ]
+}
