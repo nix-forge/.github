@@ -9,8 +9,10 @@ templates, repository defaults, documentation, and CI.
 .github publishes community-health files, issue and pull-request templates,
 workflow templates, and organization documentation. It does not publish a
 software release, compiled asset, or package. Changes are consumed by copying
-templates or by GitHub organization defaults. Future changes to shared workflow
-contracts must be reviewed against the caller repositories.
+templates or by GitHub organization defaults. The OpenSSF Scorecard template
+installs a repository-local publishing workflow because Scorecard constrains the
+job's actions and OIDC context. Future changes to shared workflow contracts must
+be reviewed against the caller repositories.
 
 The related repositories and their common security contract are listed in
 [`PROJECTS.md`](../PROJECTS.md). Template changes are reviewed with the
@@ -34,8 +36,10 @@ workflow contract validator, Dependabot, CodeQL, and the template checks.
 
 The normal evidence set is the shared workflow validator from nix-forge/ci and
 the repository's own CI workflow. Template changes include metadata checks and
-a representative caller review. No workflow template may request secrets or
-broad permissions by default.
+a representative caller review. The Scorecard workflow publishes a weekly
+default-branch result, uploads SARIF to code scanning, and uses only its
+dedicated job's narrowly scoped permissions. No workflow template may request
+secrets or broad permissions by default.
 
 ## Dependency and future release controls
 
@@ -78,7 +82,7 @@ records reviewed non-affectability statements. Support rules are in
 
 | Control area | Evidence |
 | --- | --- |
-| Least-privilege CI and trusted inputs | Empty defaults, job scopes, pinned actions, template validation, and no template secrets |
+| Least-privilege CI and trusted inputs | Empty defaults, job scopes, pinned actions, template validation, Scorecard publication constraints, and no template secrets |
 | Releases and change logs | This release policy and caller migration review |
 | Dependencies | Template pins, the caller dependency-review template, Dependabot, and CodeQL |
 | Build and test instructions | [CONTRIBUTING.md](../CONTRIBUTING.md) and the shared validator |
