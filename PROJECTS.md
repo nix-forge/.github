@@ -48,3 +48,7 @@ The builder creates and attests the exact release bytes without release-write
 access; a protected publisher verifies the signer workflow and then publishes
 an immutable release. Source-only repositories do not claim SLSA Build Level 3
 for routine CI output, documentation, or a flake that is consumed directly.
+The release environments retain a required reviewer; while the organization has
+one member, they allow that reviewer to self-approve so a protected release is
+operable. Re-enable the independent-review requirement when a second maintainer
+is available.
