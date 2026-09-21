@@ -55,7 +55,9 @@ gh attestation verify nix-forge-ci-v2.8.0.tar.gz \
    organization-owned reusable workflow on a GitHub-hosted runner. Pin the builder and
    actions to reviewed commits. Remove release-write access and long-lived signing keys
    from builder jobs. Publish only the builder's verified bytes through a protected
-   publisher. Check the subject digest, source revision, predicate, signer workflow, and
+   publisher. Attach the portable `*.intoto.jsonl` provenance bundle beside every
+   downloadable release artifact before publishing the draft as an immutable release.
+   Check the subject digest, source revision, predicate, signer workflow, and
    builder commit using a fresh download of the published asset. Record failures as
    release blockers. See the [SLSA verification requirements](https://slsa.dev/spec/v1.2/verifying-artifacts) and [GitHub's attestation verification guidance](https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/increase-security-rating).
 3. **Address Nix substitution before binary claims.** For `nix-seal` and any future
