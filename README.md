@@ -2,7 +2,6 @@
 
 [![OpenSSF Developer Best Practices](https://www.bestpractices.dev/projects/14648/badge)](https://www.bestpractices.dev/en/projects/14648/passing)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/nix-forge/.github/badge)](https://scorecard.dev/viewer/?uri=github.com/nix-forge/.github)
-[![SLSA status](https://img.shields.io/badge/SLSA-status-blue)](https://github.com/nix-forge/.github/blob/main/docs/slsa.md)
 
 Organization workflow templates call the pinned release in [nix-forge/ci](https://github.com/nix-forge/ci). Choose a template in the Actions tab and select the systems your repository supports. Template edits do not update existing copies; Dependabot updates the shared workflow references. The complete repository map and shared security contract are in [PROJECTS.md](PROJECTS.md).
 

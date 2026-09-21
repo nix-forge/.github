@@ -1,8 +1,9 @@
 # SLSA scope and adoption plan
 
-Reviewed 21 September 2026 against the [approved SLSA 1.2 specification](https://slsa.dev/spec/v1.2/). The badge in each repository links here. It
-means the repository has an assessed scope and a published plan; it does **not** assert
-that every artifact or source revision has reached Level 3.
+Reviewed 21 September 2026 against the
+[approved SLSA 1.2 specification](https://slsa.dev/spec/v1.2/). This page records
+each repository's assessed scope and next steps. No repository-wide SLSA level
+is claimed.
 
 SLSA has separate [Build](https://slsa.dev/spec/v1.2/build-track-basics) and
 [Source](https://slsa.dev/spec/v1.2/source-requirements) tracks. Build levels apply to
@@ -76,9 +77,10 @@ gh attestation verify nix-forge-ci-v2.8.0.tar.gz \
    L3. Preserve Source L4 as a separate two-person review target.
 5. **Maintain the claims.** For each claimed release, keep a verification command and
    record tied to the tag and builder commit. Reassess when the builder, release workflow,
-   runner, artifact set, branch rules, or distribution channel changes. Promote a badge
-   from "status" to a track and level only when its linked page identifies verified
-   subjects and the evidence for the current release.
+   runner, artifact set, branch rules, or distribution channel changes. Use a level badge
+   only if it names the Build or Source track and specification version and links to
+   verified subjects and evidence for the current release. A workflow status badge
+   reports whether CI passed; it does not verify a SLSA level.
 
 This plan describes provenance and release integrity. It does not replace vulnerability
 management, dependency review, reproducibility checks, or the security audit required for
