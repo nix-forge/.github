@@ -15,8 +15,9 @@ Source L3 attestation. Neither track rates a GitHub repository as a whole, and a
 level does not flow through to dependencies or consumer builds.
 
 [GitHub's guidance](https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/increase-security-rating)
-describes reusable workflows plus artifact attestations as a route to Build L3. The
-reusable workflow must produce the distributed bytes and the attestation. The publisher
+describes reusable workflows plus artifact attestations as a route to SLSA v1.0 Build
+L3. It does not assert conformance to the newer 1.2 specification, which needs its own
+assessment. The reusable workflow must produce the distributed bytes and the attestation. The publisher
 and consumer must verify the subject digest and expected signer identity. A badge claim
 needs a published, independently verifiable example, not just workflow YAML.
 
