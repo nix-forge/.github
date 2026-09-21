@@ -1,8 +1,8 @@
 # Security policy
 
 Please do not disclose security vulnerabilities in a public issue or pull
-request. Use GitHub's private vulnerability reporting for this repository when
-available. If that channel is unavailable, contact the organization
+request. Use [GitHub private vulnerability reporting](https://github.com/nix-forge/.github/security/advisories/new)
+for this repository. If that channel is unavailable, contact the organization
 maintainers privately through GitHub and include only the minimum information
 needed to reproduce the problem.
 

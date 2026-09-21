@@ -33,14 +33,21 @@ The organization requires two-factor authentication for members. GitHub Actions
 is enabled for all repositories, uses read-only default workflow permissions,
 cannot approve pull requests, and requires every action and reusable workflow
 reference to use a full commit SHA. The protected `main` branches require the
-repository's required checks, one approving review, approval of the latest
-push, linear history, a merge queue, and no force-push or deletion access.
+repository's required checks, linear history, a merge queue, and no force-push
+or deletion access.
 
-Because the organization currently has one member, `IanHollow` is the explicit
-pull-request-only bypass actor for the review and merge-queue rules. This lets
-the maintainer merge fully green maintenance changes without removing review
-protection for other contributors. Remove this exception when an independent
-maintainer is available.
+Because the organization currently has one member, branch protection requires
+no approving human review and `IanHollow` is the explicit pull-request-only
+bypass actor for the merge-queue rule. Changes still use pull requests and must
+pass their required checks. AI review can inform the maintainer's decision but
+does not count as independent human review. Require an independent approval and
+remove the exception when another qualified maintainer is available.
+
+OpenSSF Scorecard is used as evidence and a regression signal. Do not add
+nominal fuzzing, extra CI jobs, release artifacts, or an inoperable reviewer
+gate solely to raise a metric. Prefer shared controls in `nix-forge/ci`, fix
+reported vulnerabilities, and apply repository-specific checks only where they
+exercise a real security boundary.
 
 Repositories that publish release archives or executable assets use the
 reviewed reusable SLSA builders in [nix-forge/ci](https://github.com/nix-forge/ci).
