@@ -8,8 +8,10 @@ attest here.
 The release-producing repositories use the pinned reusable builders in
 `nix-forge/ci`. Their builders create the distributable bytes and provenance in
 an isolated GitHub-hosted job; a separate protected publisher verifies the
-result before release. Changes to those builder contracts and their caller
-pins must be reviewed together.
+result before release. Every artifact-bearing GitHub release must attach the
+portable `*.intoto.jsonl` provenance bundle before the draft release is
+published and made immutable. Changes to those builder contracts and their
+caller pins must be reviewed together.
 
 SLSA Build Level 3 is a claim about a named distributed artifact and its
 trusted builder. It is not a claim about source files, documentation, or
