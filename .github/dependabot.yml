@@ -7,8 +7,7 @@ updates:
     groups:
       shared-ci:
         patterns: [nix-forge/ci]
-        group-by: dependency-name
+        # Shared workflow references are validated as one release commit.
       actions-minor-patch:
-        group-by: dependency-name
         patterns: ['*']
         update-types: [minor, patch]
