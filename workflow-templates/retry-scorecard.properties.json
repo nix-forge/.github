@@ -1,0 +1,11 @@
+{
+  "name": "Recover transient Scorecard failures",
+  "description": "Automatically retry current default-branch Scorecard runs after verified transient GitHub GraphQL outages, at most twice.",
+  "iconName": "octicon shield-check",
+  "categories": [
+    "security"
+  ],
+  "filePatterns": [
+    "*"
+  ]
+}
